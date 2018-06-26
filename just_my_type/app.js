@@ -24,7 +24,6 @@ let removeHighlight = () => {
 };
 
 let start = () => {
-  console.log("starting");
   started = true;
   startTime = new Date();
 };
@@ -44,9 +43,6 @@ let setupSentence = () => {
 $(document).ready(function() {
   hide("#keyboard-upper-container");
   setupSentence();
-  // $("#sentence").append(sentences[whichSentence]);
-  // $(`#${sentences[whichSentence].charCodeAt(whichChar)}`).addClass("prompt");
-  // $(`#target-letter`).append(`${sentences[whichSentence].charAt(whichChar)}`);
   $(document).on("keypress keydown keyup", function(e) {
     if (!started) start();
     if (e.type === "keyup") {
@@ -70,7 +66,7 @@ $(document).ready(function() {
 
       //if keypress matches the current character in the current sentence, remove prompt on that char
       //move the current char to the next one, and move the yellow block over some pixels
-      // and if you are at the end of the sentence, go to the next one
+      //and if you are at the end of the sentence, go to the next one
       if (e.which === sentences[whichSentence].charCodeAt(whichChar)) {
         $("#feedback").empty();
         $("<span class='glyphicon glyphicon-ok'></span>").appendTo("#feedback");
